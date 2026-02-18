@@ -7,10 +7,10 @@ function renderTeam(members) {
           <div class="col">
             <div class="card bg-black text-white mb-3">
               <div class="row  g-0">
-                <div class="col">
+                <div class="col-12 col-md-4">
                   <img
                     src="./assets/${img}"
-                    class="img-fluid rounded-start h-100 object-fit-cover"
+                    class="img-fluid rounded-start h-100 w-100 object-fit-cover"
                     alt="..."
                   />
                 </div>
