@@ -43,7 +43,6 @@ const cardsEl = document.getElementById('cards-row')
 for (let i = 0; i < teamMembers.length; i++) {
   const teamMember = teamMembers[i];
   const { name, role, email, img } = teamMember;
-  console.log(teamMember);
   const markup = `
           <div class="col">
             <div class="card bg-black text-white mb-3">
@@ -75,4 +74,18 @@ for (let i = 0; i < teamMembers.length; i++) {
 
 }
 cardsEl.innerHTML = cards
+
+
+const formEl = document.querySelector('form')
+const nameField = document.getElementById('name')
+const professionField = document.getElementById('profession')
+const imageField = document.getElementById('image')
+console.log(formEl, nameField, professionField, imageField);
+
+
+
+const nameValue = nameField.value
+const professionValue = professionField.value
+const imageValue = imageField.value
+
 
