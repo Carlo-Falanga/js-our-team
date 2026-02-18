@@ -79,13 +79,36 @@ cardsEl.innerHTML = cards
 const formEl = document.querySelector('form')
 const nameField = document.getElementById('name')
 const professionField = document.getElementById('profession')
+const emailField = document.getElementById('mail')
 const imageField = document.getElementById('image')
-console.log(formEl, nameField, professionField, imageField);
+console.log(formEl, nameField, professionField, emailField, imageField);
 
 
 
-const nameValue = nameField.value
-const professionValue = professionField.value
-const imageValue = imageField.value
+
+formEl.addEventListener('submit', function(e){
+  e.preventDefault()
+
+  const nameValue = nameField.value
+  const professionValue = professionField.value
+  const imageValue = imageField.value
+  const emailValue = emailField.value
+
+
+const newMember = {
+  name: nameValue,
+  role: professionValue,
+  email: emailValue,
+  img: imageValue
+}
+
+teamMembers.push(newMember)
+
+formEl.reset()
+
+console.log(teamMembers);
+})
+
+
 
 
