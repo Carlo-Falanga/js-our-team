@@ -37,78 +37,32 @@ const teamMembers = [
   },
 ];
 
-let cards = ''
-const cardsEl = document.getElementById('cards-row')
+const formEl = document.querySelector("form");
+const nameField = document.getElementById("name");
+const professionField = document.getElementById("profession");
+const emailField = document.getElementById("mail");
+const imageField = document.getElementById("image");
 
-for (let i = 0; i < teamMembers.length; i++) {
-  const teamMember = teamMembers[i];
-  const { name, role, email, img } = teamMember;
-  const markup = `
-          <div class="col">
-            <div class="card bg-black text-white mb-3">
-              <div class="row  g-0">
-                <div class="col">
-                  <img
-                    src="./assets/${img}"
-                    class="img-fluid rounded-start h-100 object-fit-cover"
-                    alt="..."
-                  />
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">${name}</h5>
-                    <p class="card-text">
-                      ${role}
-                    </p>
-                    <p class="card-text text-primary">
-                      ${email}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
- `;
+const cardsEl = document.getElementById("cards-row");
 
-  cards += markup
+renderTeam(teamMembers);
 
-}
-cardsEl.innerHTML = cards
+formEl.addEventListener("submit", function (e) {
+  e.preventDefault();
 
+  const nameValue = nameField.value;
+  const professionValue = professionField.value;
+  const imageValue = imageField.value;
+  const emailValue = emailField.value;
 
-const formEl = document.querySelector('form')
-const nameField = document.getElementById('name')
-const professionField = document.getElementById('profession')
-const emailField = document.getElementById('mail')
-const imageField = document.getElementById('image')
-console.log(formEl, nameField, professionField, emailField, imageField);
+  const newMember = {
+    name: nameValue,
+    role: professionValue,
+    email: emailValue,
+    img: imageValue,
+  };
 
-
-
-
-formEl.addEventListener('submit', function(e){
-  e.preventDefault()
-
-  const nameValue = nameField.value
-  const professionValue = professionField.value
-  const imageValue = imageField.value
-  const emailValue = emailField.value
-
-
-const newMember = {
-  name: nameValue,
-  role: professionValue,
-  email: emailValue,
-  img: imageValue
-}
-
-teamMembers.push(newMember)
-
-formEl.reset()
-
-console.log(teamMembers);
-})
-
-
-
-
+  teamMembers.push(newMember);
+  renderTeam(teamMembers);
+  formEl.reset();
+});
